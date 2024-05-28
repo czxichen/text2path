@@ -1,0 +1,28 @@
+[package]
+name = "text2path"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "text2path"
+path = "src/lib.rs"
+
+[[example]]
+name = "pdfpath"
+path = "example/pdfpath.rs"
+
+[[example]]
+name = "svgpath"
+path = "example/svgpath.rs"
+
+
+[dependencies]
+rustybuzz = "0.14.0"
+tiny-skia = "0.11.4"
+unicode-bidi = "0.3.15"
+pdfium-render = { version = "0.8.20", optional = true }
+
+[features]
+default = ["pdf"]
+pdf = ["pdfium-render"]
